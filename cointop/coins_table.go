@@ -7,6 +7,7 @@ import (
 
 	"github.com/cointop-sh/cointop/pkg/humanize"
 	"github.com/cointop-sh/cointop/pkg/table"
+	log "github.com/sirupsen/logrus"
 )
 
 // SupportedCoinTableHeaders are all the supported coin table header columns
@@ -25,6 +26,7 @@ var SupportedCoinTableHeaders = []string{
 	"available_supply",
 	"total_supply",
 	"last_updated",
+	"fdv",
 }
 
 // DefaultCoinTableHeaders are the default coin table header columns
@@ -40,6 +42,7 @@ var DefaultCoinTableHeaders = []string{
 	"market_cap",
 	"available_supply",
 	"total_supply",
+	"fdv",
 	"last_updated",
 }
 
@@ -301,6 +304,22 @@ func (ct *Cointop) GetCoinsTable() *table.Table {
 						LeftAlign:   false,
 						Color:       ct.colorscheme.TableRow,
 						Text:        lastUpdated,
+					})
+			case "fdv":
+				text := humanize.Monetaryf(coin.FullyDilutedValuation, 0)
+				if ct.IsActiveTableCompactNotation() {
+					text = humanize.ScaleNumericf(coin.FullyDilutedValuation, 3)
+				}
+				log.Debug("fdv " + header + ":" + text)
+				ct.SetTableColumnWidthFromString(header, text)
+				ct.SetTableColumnAlignLeft(header, false)
+				rowCells = append(rowCells,
+					&table.RowCell{
+						LeftMargin:  leftMargin,
+						RightMargin: rightMargin,
+						LeftAlign:   false,
+						Color:       ct.colorscheme.TableRow,
+						Text:        text,
 					})
 			}
 		}

@@ -146,6 +146,11 @@ var HeaderColumns = map[string]*HeaderColumn{
 		Label:      "[#]PNL%",
 		PlainLabel: "PNL%",
 	},
+	"fdv": {
+		Slug:       "fdv",
+		Label:      "fdv",
+		PlainLabel: "fdv",
+	},
 }
 
 // GetLabel fetch the label to use for the heading (depends on configuration)
@@ -203,6 +208,7 @@ func (ct *Cointop) UpdateTableHeader() error {
 	noSort := ct.IsPriceAlertsVisible()
 
 	cols := ct.GetActiveTableHeaders()
+	log.Debug(strings.Join(cols, ", "))
 	var headers []string
 	var columnLookup []string // list of column-names or ""
 	for i, col := range cols {
@@ -211,6 +217,7 @@ func (ct *Cointop) UpdateTableHeader() error {
 			continue
 		}
 		width := ct.GetTableColumnWidth(col)
+		log.Debug(fmt.Sprintf("col: %s, width: %d", col, width))
 		if width == 0 {
 			continue
 		}

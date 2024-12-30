@@ -79,6 +79,7 @@ type MarketDataItem struct {
 	ATHChangePercentage                    AllCurrencies     `json:"ath_change_percentage"`
 	ATHDate                                map[string]string `json:"ath_date"`
 	MarketCap                              AllCurrencies     `json:"market_cap"`
+	FullyDilutedValuation                  AllCurrencies     `json:"fully_diluted_valuation"`
 	MarketCapRank                          uint16            `json:"market_cap_rank"`
 	TotalVolume                            AllCurrencies     `json:"total_volume"`
 	High24                                 AllCurrencies     `json:"high_24h"`
@@ -204,6 +205,7 @@ type CoinsMarketItem struct {
 	CurrentPrice                        float64        `json:"current_price"`
 	MarketCap                           float64        `json:"market_cap"`
 	MarketCapRank                       int16          `json:"market_cap_rank"`
+	FullyDilutedValuation               float64        `json:"fully_diluted_valuation"`
 	TotalVolume                         float64        `json:"total_volume"`
 	High24                              float64        `json:"high_24h"`
 	Low24                               float64        `json:"low_24h"`

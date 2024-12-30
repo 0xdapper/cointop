@@ -98,24 +98,27 @@ func (ct *Cointop) processCoins(coins []types.Coin) {
 			v.Rank = 10000
 		}
 
+		log.Debug("processCoins()"+v.Name, v.FullyDilutedValuation)
+
 		ilast, _ := ct.State.allCoinsSlugMap.Load(k)
 		ct.State.allCoinsSlugMap.Store(k, &Coin{
-			ID:               v.ID,
-			Name:             v.Name,
-			Symbol:           v.Symbol,
-			Rank:             v.Rank,
-			Price:            v.Price,
-			Volume24H:        v.Volume24H,
-			MarketCap:        v.MarketCap,
-			AvailableSupply:  v.AvailableSupply,
-			TotalSupply:      v.TotalSupply,
-			PercentChange1H:  v.PercentChange1H,
-			PercentChange24H: v.PercentChange24H,
-			PercentChange7D:  v.PercentChange7D,
-			PercentChange30D: v.PercentChange30D,
-			PercentChange1Y:  v.PercentChange1Y,
-			LastUpdated:      v.LastUpdated,
-			Slug:             v.Slug,
+			ID:                    v.ID,
+			Name:                  v.Name,
+			Symbol:                v.Symbol,
+			Rank:                  v.Rank,
+			Price:                 v.Price,
+			Volume24H:             v.Volume24H,
+			MarketCap:             v.MarketCap,
+			FullyDilutedValuation: v.FullyDilutedValuation,
+			AvailableSupply:       v.AvailableSupply,
+			TotalSupply:           v.TotalSupply,
+			PercentChange1H:       v.PercentChange1H,
+			PercentChange24H:      v.PercentChange24H,
+			PercentChange7D:       v.PercentChange7D,
+			PercentChange30D:      v.PercentChange30D,
+			PercentChange1Y:       v.PercentChange1Y,
+			LastUpdated:           v.LastUpdated,
+			Slug:                  v.Slug,
 		})
 		if ilast != nil {
 			last, _ := ilast.(*Coin)

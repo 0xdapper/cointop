@@ -6,22 +6,23 @@ import (
 
 // Coin is the row structure
 type Coin struct {
-	ID               string
-	Name             string
-	Slug             string
-	Symbol           string
-	Rank             int
-	Price            float64
-	Volume24H        float64
-	MarketCap        float64
-	AvailableSupply  float64
-	TotalSupply      float64
-	PercentChange1H  float64
-	PercentChange24H float64
-	PercentChange7D  float64
-	PercentChange30D float64
-	PercentChange1Y  float64
-	LastUpdated      string
+	ID                    string
+	Name                  string
+	Slug                  string
+	Symbol                string
+	Rank                  int
+	Price                 float64
+	Volume24H             float64
+	MarketCap             float64
+	FullyDilutedValuation float64
+	AvailableSupply       float64
+	TotalSupply           float64
+	PercentChange1H       float64
+	PercentChange24H      float64
+	PercentChange7D       float64
+	PercentChange30D      float64
+	PercentChange1Y       float64
+	LastUpdated           string
 	// for favorites
 	Favorite bool
 	// for portfolio
@@ -105,22 +106,23 @@ func (ct *Cointop) UpdateCoin(coin *Coin) error {
 	}
 
 	coin = &Coin{
-		ID:               v.ID,
-		Name:             v.Name,
-		Symbol:           v.Symbol,
-		Rank:             v.Rank,
-		Price:            v.Price,
-		Volume24H:        v.Volume24H,
-		MarketCap:        v.MarketCap,
-		AvailableSupply:  v.AvailableSupply,
-		TotalSupply:      v.TotalSupply,
-		PercentChange1H:  v.PercentChange1H,
-		PercentChange24H: v.PercentChange24H,
-		PercentChange7D:  v.PercentChange7D,
-		PercentChange30D: v.PercentChange30D,
-		PercentChange1Y:  v.PercentChange1Y,
-		LastUpdated:      v.LastUpdated,
-		Slug:             v.Slug,
+		ID:                    v.ID,
+		Name:                  v.Name,
+		Symbol:                v.Symbol,
+		Rank:                  v.Rank,
+		Price:                 v.Price,
+		Volume24H:             v.Volume24H,
+		MarketCap:             v.MarketCap,
+		FullyDilutedValuation: v.FullyDilutedValuation,
+		AvailableSupply:       v.AvailableSupply,
+		TotalSupply:           v.TotalSupply,
+		PercentChange1H:       v.PercentChange1H,
+		PercentChange24H:      v.PercentChange24H,
+		PercentChange7D:       v.PercentChange7D,
+		PercentChange30D:      v.PercentChange30D,
+		PercentChange1Y:       v.PercentChange1Y,
+		LastUpdated:           v.LastUpdated,
+		Slug:                  v.Slug,
 	}
 
 	ct.State.allCoinsSlugMap.Store(coin.Name, coin)

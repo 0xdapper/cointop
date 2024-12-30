@@ -2,21 +2,22 @@ package types
 
 // Coin struct
 type Coin struct {
-	ID               string  `json:"id"`
-	Name             string  `json:"name"`
-	Symbol           string  `json:"symbol"`
-	Rank             int     `json:"rank"`
-	Price            float64 `json:"price"`
-	Volume24H        float64 `json:"volume24H"`
-	MarketCap        float64 `json:"marketCap"`
-	AvailableSupply  float64 `json:"availableSupply"`
-	TotalSupply      float64 `json:"totalSupply"`
-	PercentChange1H  float64 `json:"percentChange1H"`
-	PercentChange24H float64 `json:"percentChange24H"`
-	PercentChange7D  float64 `json:"percentChange7D"`
-	PercentChange30D float64 `json:"percentChange30D"`
-	PercentChange1Y  float64 `json:"percentChange1Y"`
-	LastUpdated      string  `json:"lastUpdated"`
+	ID                    string  `json:"id"`
+	Name                  string  `json:"name"`
+	Symbol                string  `json:"symbol"`
+	Rank                  int     `json:"rank"`
+	Price                 float64 `json:"price"`
+	Volume24H             float64 `json:"volume24H"`
+	MarketCap             float64 `json:"marketCap"`
+	FullyDilutedValuation float64 `json:"fullyDilutedValuation"`
+	AvailableSupply       float64 `json:"availableSupply"`
+	TotalSupply           float64 `json:"totalSupply"`
+	PercentChange1H       float64 `json:"percentChange1H"`
+	PercentChange24H      float64 `json:"percentChange24H"`
+	PercentChange7D       float64 `json:"percentChange7D"`
+	PercentChange30D      float64 `json:"percentChange30D"`
+	PercentChange1Y       float64 `json:"percentChange1Y"`
+	LastUpdated           string  `json:"lastUpdated"`
 	// Slug uses to access the coin's info web page
 	Slug string `json:"slug"`
 }
